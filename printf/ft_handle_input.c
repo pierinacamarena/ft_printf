@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:22:45 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/05/21 17:59:26 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:12:13 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ char	*ft_strdup(const char *str)
 	}
 	output[i] = '\0';
 	return(output);
+}
+
+int		ft_process_fs(char c, va_list list)
+{
+
 }
 
 bool	ft_is_flag(char c)

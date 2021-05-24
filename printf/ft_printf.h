@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:29:01 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/05/21 17:03:34 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:12:06 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <stdlib.h>
+
+typedef struct		p_flags
+{
+	int		minus
+	int		zero
+	int		dot
+	int		star
+	int		width
+}					t_flags
 
 int		ft_printf(const char *input, ...);
 int		ft_process_input(const char *str, va_list list);
