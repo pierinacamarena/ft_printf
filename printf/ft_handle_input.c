@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:22:45 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/05/24 20:12:13 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/05/27 18:28:05 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,22 @@ char	*ft_strdup(const char *str)
 	return(output);
 }
 
-int		ft_process_fs(char c, va_list list)
+/**
+int		ft_process_fs(char **str, va_list list)
 {
+	int char_count;
 
+	char_count = 0;
+	printf("the char received at process_fs is %c\n", c);
+	if (ft_is_flag(c))
+		printf("This is a flag! \n");
+	else if (ft_is_fs(c))
+	{
+		printf("I reached the format specifier check \n");
+		printf("the value of char c is %c\n", c);
+		char_count += ft_treat_fs(c, list);
+	}
+	return(char_count);
 }
 
 bool	ft_is_flag(char c)
@@ -59,7 +72,7 @@ bool	ft_is_fs(char c)
 		return (false);
 }
 
-/**
+
 void	ft_treat_char(char c)
 {
 	ft_putchar(c);
@@ -67,17 +80,19 @@ void	ft_treat_char(char c)
 
 **/
 
-int		ft_treat_fs(int c, va_list args)
+int		ft_treat_fs(const char **str, va_list list)
 {
 	int				char_count;
 	unsigned int	i;
 
 	char_count = 0;
-	if (c == 'c')
+//	printf("I am inside the ft_treat_fs function \n");
+	if (**str == 'c')
 	{
 		i = va_arg(args, int);
-		printf("the char of i is %c\n",i);
+//		printf("\n____________\n");
 		ft_putchar(i);
+//		printf("\n__________________\n");
 		char_count++;
 	}
 	return(char_count);

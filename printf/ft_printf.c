@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 11:06:22 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/05/21 19:28:50 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/05/27 18:20:46 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,22 @@ int		ft_process_input(const char *str, va_list list)
 
 	i = 0;
 	char_count = 0;
-	while (str[i] != '\0' && str[i + 1])
+	while (*str)
 	{
-		if (!str[i])
+		if (!*str)
 			break;
-		else if (str[i] == '%' && str[i])
+		else if (*str!= '%')
 		{
-			char_count += ft_process_ffs(str[i], list);
-		}
-		else if (str[i] != '%' && str[i-1] != '%')
-		{
-			write(1, &str[i], 1);
+			write(1, &*str++, 1);
 			char_count++;
+			continue;
 		}
-		i++;
+		else if (*str == '%')
+		{
+			str++;
+			char_count += ft_treat_fs(&str, list);
+			str++;
+		}
 	}
 	return (char_count);
 }
