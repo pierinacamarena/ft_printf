@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 11:06:22 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/05/27 18:20:46 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/05/28 20:03:20 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_process_input(const char *str, va_list list)
 		else if (*str == '%')
 		{
 			str++;
-			char_count += ft_treat_fs(&str, list);
+			char_count += ft_process_fs(&str, list);
 			str++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:29:01 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/05/25 19:15:17 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/05/28 20:03:31 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void	ft_putchar(int c);
 bool	ft_is_flag(char c);
 bool	ft_is_fs(char c);
 //void	ft_treat_char(char c);
-int		ft_treat_fs(const char **c, va_list args);
-//int		ft_process_fs(char c, va_list list);
+int		ft_treat_fs(char c, va_list list);
+int		ft_process_fs(const char **str, va_list list);
+int		ft_strlen(char *str);
+void	ft_putstr(char *str);
 
 #endif

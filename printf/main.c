@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:15:18 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/05/27 18:19:51 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/05/28 20:02:31 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ int		main(void)
 	printf("		(1) Prueba char [d]\n");
 	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%c]\n", 'd'));
 	printf("valeur de retour = [%d]\n", printf("   printf = [%c]\n", 'd'));
+	printf("=========================\n");
+
+	printf("=========================\n");
+	printf("		(1) Prueba string [s]\n");
+	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%s]\n", "Hola como estas"));
+	printf("valeur de retour = [%d]\n", printf("   printf = [%s]\n", "Hola como estas"));
 	printf("=========================\n");
 
 	/**
