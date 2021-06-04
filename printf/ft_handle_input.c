@@ -6,28 +6,23 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:22:45 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/05/28 20:04:51 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/04 17:44:14 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_process_fs(const char **str, va_list list)
+int		ft_process_fs(const char **str, va_list list, t_flqgs flags)
 {
 	int		char_count;
 	char	c;
 
 	c = **str;
 	char_count = 0;
-//	printf("the char received at process_fs is %c\n", c);
 	if (ft_is_flag(c))
 		printf("This is a flag! \n");
 	else if (ft_is_fs(c))
-	{
-//		printf("I reached the format specifier check \n");
-	//	printf("the value of char c is %c\n", c);
 		char_count += ft_treat_fs(c, list);
-	}
 	return(char_count);
 }
 
@@ -47,37 +42,75 @@ bool	ft_is_fs(char c)
 	else
 		return (false);
 }
-/**
+
 
 void	ft_treat_char(char c)
 {
 	ft_putchar(c);
 }
 
-**/
+int		ft_treat_str(char *str)
+{
+	int	count_char;
+
+	count_char = ft_strlen(str);
+	if (!str)
+		str = "(NULL)";
+	ft_putstr(str);
+	return (count_char);
+}
+
+int		ft_put_numbr(unsigned int i)
+{
+	int char_count;
+
+	char_count = 0;
+	if (i / 10 != 0)
+		ft_putnbr(i /10);
+	ft_putchar((n % 10) + '0');
+	char_count++;
+	return (char_count);
+}
+
+int		ft_treat_int(int i)
+{
+	int	count_char;
+
+	count_char = 0;
+	if (i < 0)
+	{
+		ft_putchar('-');
+		i = -i;
+		count_char++;
+	}
+	count_char += ft_putnbr(unsigned int(i));
+	return (count_char);
+}
 
 int		ft_treat_fs(char c, va_list list)
 {
 	int				char_count;
 	unsigned int	i;
-	char	*str;
+	char			*str;
+	int				number;
 
 
 	char_count = 0;
 	if (c == 'c')
 	{
 		i = va_arg(list, int);
-		ft_putchar(i);
+		ft_treat_char(i);
 		char_count++;
 	}
 	if (c == 's')
 	{
 		str = va_arg(list, char *);
-		if (!str)
-			str = "(NULL)";
-		ft_putstr(str);
-		char_count += ft_strlen(str);
-		
+		char_count += ft_treat_str(str);
+	}
+	if (c == 'd')
+	{
+		number = va_arg(list, int);
+		char_count += ft_treat_int(number);
 	}
 	return(char_count);
 }

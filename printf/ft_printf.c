@@ -6,21 +6,35 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 11:06:22 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/05/28 20:03:20 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/04 17:44:11 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+t_flags	ft_flag_init(void)
+{
+	t_flags		flags;
+
+	flags.minus = 0;
+	flags.zero = 0;
+	flags.dot = 0;
+	flags.star = 0;
+	flags.width = 0;
+	return(flags);
+}
+
 int		ft_process_input(const char *str, va_list list)
 {
-	int i;
-	int char_count;
+	int		i;
+	int		char_count;
+	t_flags	flags;
 
 	i = 0;
 	char_count = 0;
 	while (*str)
 	{
+		flags = ft_flag_init();
 		if (!*str)
 			break;
 		else if (*str!= '%')
@@ -32,7 +46,7 @@ int		ft_process_input(const char *str, va_list list)
 		else if (*str == '%')
 		{
 			str++;
-			char_count += ft_process_fs(&str, list);
+			char_count += ft_process_fs(&str, list, flags);
 			str++;
 		}
 	}

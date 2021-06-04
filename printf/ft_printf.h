@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:29:01 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/05/28 20:03:31 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:53:20 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-typedef struct		p_flags
+typedef struct		s_flags
 {
 	int		minus;
 	int		zero;
@@ -35,9 +35,10 @@ char	*ft_strdup(const char *str);
 void	ft_putchar(int c);
 bool	ft_is_flag(char c);
 bool	ft_is_fs(char c);
-//void	ft_treat_char(char c);
+void	ft_treat_char(char c);
 int		ft_treat_fs(char c, va_list list);
 int		ft_process_fs(const char **str, va_list list);
+int		ft_treat_str(char *str);
 int		ft_strlen(char *str);
 void	ft_putstr(char *str);
 
