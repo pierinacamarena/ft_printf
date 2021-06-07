@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:15:18 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/05/28 20:02:31 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/07 20:25:45 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,63 @@
 int		main(void)
 {
 
+//	Pruebas char
+	printf ("\033[33;01m	Pruebas \033[32;01mChar \033[00m\n");
 	printf("=========================\n");
 	printf("		(1) Prueba char [d]\n");
 	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%c]\n", 'd'));
 	printf("valeur de retour = [%d]\n", printf("   printf = [%c]\n", 'd'));
 	printf("=========================\n");
 
+//	pruebas string
+
+	printf ("\n\n\033[33;01m	Pruebas \033[32;01mString \033[00m\n");
 	printf("=========================\n");
 	printf("		(1) Prueba string [s]\n");
 	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%s]\n", "Hola como estas"));
 	printf("valeur de retour = [%d]\n", printf("   printf = [%s]\n", "Hola como estas"));
 	printf("=========================\n");
 
+//	pruebas d integer
+
+	printf ("\n\n\033[33;01m	Pruebas \033[32;01md \033[00m\n");
+
+	printf("=========================\n");
+	printf("		(1) Prueba numeros (d) [d]\n");
+	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%d] et [%d]\n", 42, -42));
+	printf("valeur de retour = [%d]\n", printf("   printf = [%d] et [%d]\n", 42, -42));
+	printf("=========================\n");
+
+	//	pruebas i integer
+
+	printf ("\n\n\033[33;01m	Pruebas \033[32;01mi \033[00m\n");
+
+	printf("=========================\n");
+	printf("		(1) Prueba numeros (i) [i]\n");
+	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%i] et [%i]\n", 42, -42));
+	printf("valeur de retour = [%d]\n", printf("   printf = [%i] et [%i]\n", 42, -42));
+	printf("=========================\n");
+
+//	pruebas X
+
+	printf ("\n\n\033[33;01m	Pruebas \033[32;01m(x & X) \033[00m\n");
+
+	printf("=========================\n");
+	printf("		(1) Prueba numeros (x & X) [x] [X]\n");
+	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%x] et [%X]\n", (unsigned int)3147483647, -35));
+	printf("valeur de retour = [%d]\n", printf("   printf = [%x] et [%X]\n", (unsigned int)3147483647, -35));
+	printf("=========================\n");
+
+//	pruebas u integer
+/**
+	printf ("\n\n\033[33;01m	Pruebas \033[32;01mu \033[00m\n");
+
+	printf("=========================\n");
+	printf("		(1) Prueba numeros (u) [u]\n");
+	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%u] et [%u]\n", (unsigned int)3147483647, -42));
+	printf("valeur de retour = [%d]\n", printf("   printf = [%u] et [%u]\n", (unsigned int)3147483647, -42));
+	printf("=========================\n");
+**/
 	/**
 
 	printf("=========================\n");

@@ -6,13 +6,13 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:22:45 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/04 17:44:14 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/07 20:26:26 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_process_fs(const char **str, va_list list, t_flqgs flags)
+int		ft_process_fs(const char **str, va_list list, t_flags flags)
 {
 	int		char_count;
 	char	c;
@@ -60,14 +60,17 @@ int		ft_treat_str(char *str)
 	return (count_char);
 }
 
-int		ft_put_numbr(unsigned int i)
+int		ft_putnbr(unsigned int i)
 {
 	int char_count;
 
 	char_count = 0;
 	if (i / 10 != 0)
+	{
 		ft_putnbr(i /10);
-	ft_putchar((n % 10) + '0');
+		char_count++;
+	}
+	ft_putchar((i % 10) + '0');
 	char_count++;
 	return (char_count);
 }
@@ -83,8 +86,46 @@ int		ft_treat_int(int i)
 		i = -i;
 		count_char++;
 	}
-	count_char += ft_putnbr(unsigned int(i));
+	count_char += ft_putnbr((unsigned int)i);
 	return (count_char);
+}
+
+int		ft_treat_hexa(unsigned int i)
+{
+	char	hexadec[100];
+	int		n;
+	int		j;
+	int		count_char;
+
+	n = 0;
+	count_char = 0;
+	while (i != 0)
+	{
+		int temp;
+
+		temp = 0;
+		temp = i % 16;
+		printf("value of temp%d\n", temp);
+		if (temp < 10)
+		{
+			hexadec[n] = temp + 48;
+			n++;
+		}
+		else
+		{
+			hexadec[n] = temp + 55;
+			n++;
+		}
+		i = i /16;
+	}
+	j = n - 1;
+	while (j >= 0)
+	{
+		ft_putchar(hexadec[j]);
+		count_char++;
+		j--;
+	}
+	return count_char;
 }
 
 int		ft_treat_fs(char c, va_list list)
@@ -107,10 +148,15 @@ int		ft_treat_fs(char c, va_list list)
 		str = va_arg(list, char *);
 		char_count += ft_treat_str(str);
 	}
-	if (c == 'd')
+	if (c == 'd' || c == 'i')
 	{
 		number = va_arg(list, int);
 		char_count += ft_treat_int(number);
+	}
+	if (c == 'x' || c == 'X')
+	{
+		i = va_arg(list, unsigned int);
+		char_count += ft_treat_hexa(i);
 	}
 	return(char_count);
 }
