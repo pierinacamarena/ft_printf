@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:15:18 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/07 20:25:45 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/10 18:36:22 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		main(void)
 	printf("valeur de retour = [%d]\n", printf("   printf = [%i] et [%i]\n", 42, -42));
 	printf("=========================\n");
 
-//	pruebas X
+//	pruebas X  commit test change
 
 	printf ("\n\n\033[33;01m	Pruebas \033[32;01m(x & X) \033[00m\n");
 
