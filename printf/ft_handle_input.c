@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:22:45 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/07 20:26:26 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/15 18:24:45 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ bool	ft_is_fs(char c)
 	else
 		return (false);
 }
-
 
 void	ft_treat_char(char c)
 {
@@ -90,7 +89,7 @@ int		ft_treat_int(int i)
 	return (count_char);
 }
 
-int		ft_treat_hexa(unsigned int i)
+int		ft_treat_hexa(unsigned int i, char c)
 {
 	char	hexadec[100];
 	int		n;
@@ -105,7 +104,6 @@ int		ft_treat_hexa(unsigned int i)
 
 		temp = 0;
 		temp = i % 16;
-		printf("value of temp%d\n", temp);
 		if (temp < 10)
 		{
 			hexadec[n] = temp + 48;
@@ -119,6 +117,15 @@ int		ft_treat_hexa(unsigned int i)
 		i = i /16;
 	}
 	j = n - 1;
+	if (c == 'x')
+	{
+		while (hexadec[count_char] != '\0')
+		{
+			hexadec[count_char] = ft_tolower(hexadec[count_char]);
+		count_char++;
+		}
+	}
+	count_char = 0;
 	while (j >= 0)
 	{
 		ft_putchar(hexadec[j]);
@@ -126,6 +133,14 @@ int		ft_treat_hexa(unsigned int i)
 		j--;
 	}
 	return count_char;
+}
+
+int		ft_tolower(int c)
+{
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	else
+		return (c);
 }
 
 int		ft_treat_fs(char c, va_list list)
@@ -156,7 +171,7 @@ int		ft_treat_fs(char c, va_list list)
 	if (c == 'x' || c == 'X')
 	{
 		i = va_arg(list, unsigned int);
-		char_count += ft_treat_hexa(i);
+		char_count += ft_treat_hexa(i, c);
 	}
 	return(char_count);
 }

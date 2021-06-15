@@ -6,11 +6,13 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:15:18 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/10 18:36:22 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/15 17:42:50 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+
 
 int		main(void)
 {
@@ -24,6 +26,8 @@ int		main(void)
 	printf("=========================\n");
 
 //	pruebas string
+//
+//
 
 	printf ("\n\n\033[33;01m	Pruebas \033[32;01mString \033[00m\n");
 	printf("=========================\n");
@@ -62,6 +66,9 @@ int		main(void)
 	printf("valeur de retour = [%d]\n", printf("   printf = [%x] et [%X]\n", (unsigned int)3147483647, -35));
 	printf("=========================\n");
 
+	return (0);
+}
+
 //	pruebas u integer
 /**
 	printf ("\n\n\033[33;01m	Pruebas \033[32;01mu \033[00m\n");
@@ -83,8 +90,6 @@ int		main(void)
 //	printf("valeur de retour = [%d]\n", printf("   printf = [%c]\n", 'f'));
 	printf("=========================\n");
 
-	**/
-	/**
 
 //	int d = 'p';
 
@@ -96,5 +101,23 @@ int		main(void)
 
 	return (0);
 	**/
+
+/**
 	return(0);
 }
+**/
+
+/**
+
+int main()
+{
+	int temp;
+	int dec;
+
+	dec = 116;
+	temp = dec % 16;
+	printf("temp is %d\n", temp);
+	return (0);
+}
+**/
+
