@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:15:18 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/15 17:42:50 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/15 20:05:01 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,27 @@ int		main(void)
 	printf("		(1) Prueba numeros (x & X) [x] [X]\n");
 	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%x] et [%X]\n", (unsigned int)3147483647, -35));
 	printf("valeur de retour = [%d]\n", printf("   printf = [%x] et [%X]\n", (unsigned int)3147483647, -35));
+	printf("=========================\n");
+
+// pruebas %
+
+	printf ("\n\n\033[33;01m	Pruebas \033[32;01mPorcentaje \033[00m\n");
+
+	printf("=========================\n");
+	printf("		(1) Prueba numeros (35)\n");
+	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [35%%]\n"));
+	printf("valeur de retour = [%d]\n", printf("   printf = [35%%]\n"));
+	printf("=========================\n");
+
+// pruebas pointer
+
+	printf ("\n\n\033[33;01m	Pruebas \033[32;01mPointer \033[00m\n");
+	char a = 'a';
+
+	printf("=========================\n");
+	printf("		(1) Prueba numeros (p)\n");
+	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%p]\n", &a ));
+	printf("valeur de retour = [%d]\n", printf("   printf = [%p]\n", &a));
 	printf("=========================\n");
 
 	return (0);

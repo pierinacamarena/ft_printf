@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:22:45 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/15 18:24:45 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/15 20:19:11 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,7 @@ int		ft_treat_fs(char c, va_list list)
 	unsigned int	i;
 	char			*str;
 	int				number;
+	size_t			t;
 
 
 	char_count = 0;
@@ -173,5 +174,16 @@ int		ft_treat_fs(char c, va_list list)
 		i = va_arg(list, unsigned int);
 		char_count += ft_treat_hexa(i, c);
 	}
+	if (c == '%')
+	{
+		ft_putchar('%');
+		char_count++;
+	}
+	if (c == 'p')
+	{
+		t = va_arg(list, size_t);
+		printf(" %zx", t);
+		}
+
 	return(char_count);
 }
