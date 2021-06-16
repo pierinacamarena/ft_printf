@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:22:45 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/15 20:19:11 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/16 18:20:21 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,52 @@ int		ft_treat_hexa(unsigned int i, char c)
 	return count_char;
 }
 
+int		ft_treat_hexa_sizet(size_t i, char c)
+{
+	char	hexadec[100];
+	int		n;
+	int		j;
+	int		count_char;
+
+	n = 0;
+	count_char = 0;
+	while (i != 0)
+	{
+		int temp;
+
+		temp = 0;
+		temp = i % 16;
+		if (temp < 10)
+		{
+			hexadec[n] = temp + 48;
+			n++;
+		}
+		else
+		{
+			hexadec[n] = temp + 55;
+			n++;
+		}
+		i = i /16;
+	}
+	j = n - 1;
+	if (c == 'x')
+	{
+		while (hexadec[count_char] != '\0')
+		{
+			hexadec[count_char] = ft_tolower(hexadec[count_char]);
+		count_char++;
+		}
+	}
+	count_char = 0;
+	while (j >= 0)
+	{
+		ft_putchar(hexadec[j]);
+		count_char++;
+		j--;
+	}
+	return count_char;
+}
+
 int		ft_tolower(int c)
 {
 	if (c >= 65 && c <= 90)
@@ -169,6 +215,10 @@ int		ft_treat_fs(char c, va_list list)
 		number = va_arg(list, int);
 		char_count += ft_treat_int(number);
 	}
+	if (c == 'u')
+	{
+		printf("hi, this is an u integer");
+	}
 	if (c == 'x' || c == 'X')
 	{
 		i = va_arg(list, unsigned int);
@@ -182,7 +232,11 @@ int		ft_treat_fs(char c, va_list list)
 	if (c == 'p')
 	{
 		t = va_arg(list, size_t);
-		printf(" %zx", t);
+		ft_putchar('0');
+		char_count++;
+		ft_putchar('x');
+		char_count++;
+		char_count += ft_treat_hexa_sizet(t, 'x');
 		}
 
 	return(char_count);

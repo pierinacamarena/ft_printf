@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:15:18 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/15 20:05:01 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/16 18:05:26 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,12 @@ int		main(void)
 	printf("		(1) Prueba numeros (x & X) [x] [X]\n");
 	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%x] et [%X]\n", (unsigned int)3147483647, -35));
 	printf("valeur de retour = [%d]\n", printf("   printf = [%x] et [%X]\n", (unsigned int)3147483647, -35));
+	printf("=========================\n");
+
+		printf("=========================\n");
+	printf("		(1) Prueba numeros (x & X) [x] [X]\n");
+	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%X] et [%X]\n", (unsigned int)140732770597115, -45));
+	printf("valeur de retour = [%d]\n", printf("   printf = [%X] et [%X]\n", (unsigned int)140732770597115, -45));
 	printf("=========================\n");
 
 // pruebas %
