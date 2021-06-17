@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:15:18 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/16 18:05:26 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/17 19:47:56 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		main(void)
 	printf("=========================\n");
 	printf("		(1) Prueba numeros (d) [d]\n");
 	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%d] et [%d]\n", 42, -42));
-	printf("valeur de retour = [%d]\n", printf("   printf = [%d] et [%d]\n", 42, -42));
+printf("valeur de retour = [%d]\n", printf("   printf = [%d] et [%d]\n", 42, -42));
 	printf("=========================\n");
 
 	//	pruebas i integer
@@ -52,8 +52,8 @@ int		main(void)
 
 	printf("=========================\n");
 	printf("		(1) Prueba numeros (i) [i]\n");
-	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%i] et [%i]\n", 42, -42));
-	printf("valeur de retour = [%d]\n", printf("   printf = [%i] et [%i]\n", 42, -42));
+	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%i] et [%i]\n", 36424, -424));
+	printf("valeur de retour = [%d]\n", printf("   printf = [%i] et [%i]\n", 36424, -424));
 	printf("=========================\n");
 
 //	pruebas X  commit test change
@@ -93,11 +93,8 @@ int		main(void)
 	printf("valeur de retour = [%d]\n", printf("   printf = [%p]\n", &a));
 	printf("=========================\n");
 
-	return (0);
-}
-
 //	pruebas u integer
-/**
+
 	printf ("\n\n\033[33;01m	Pruebas \033[32;01mu \033[00m\n");
 
 	printf("=========================\n");
@@ -105,7 +102,10 @@ int		main(void)
 	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%u] et [%u]\n", (unsigned int)3147483647, -42));
 	printf("valeur de retour = [%d]\n", printf("   printf = [%u] et [%u]\n", (unsigned int)3147483647, -42));
 	printf("=========================\n");
-**/
+
+	return (0);
+}
+
 	/**
 
 	printf("=========================\n");

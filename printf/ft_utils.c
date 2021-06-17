@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 19:45:30 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/04 17:44:16 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/17 18:16:53 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -56,4 +56,31 @@ char	*ft_strdup(const char *str)
 	}
 	output[i] = '\0';
 	return(output);
+}
+
+char	*ft_strnew(size_t size)
+{
+	char *newstr;
+
+	if (!(newstr = (char *)malloc(sizeof(char) * size + 1)))
+		return (NULL);
+	ft_memset(newstr, '\0', size + 1);
+	return (newstr);
+}
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	size_t			n;
+	unsigned char	*b2;
+	unsigned char	c2;
+
+	b2 = b;
+	c2 = c;
+	n = 0;
+	while (n < len)
+	{
+		b2[n] = c2;
+		n++;
+	}
+	return (b);
 }

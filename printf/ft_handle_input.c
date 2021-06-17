@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:22:45 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/16 18:20:21 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/17 20:18:47 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,34 @@ int		ft_treat_str(char *str)
 	return (count_char);
 }
 
+int		ft_intsize(unsigned int n)
+{
+	int		size;
+
+	size = 0;
+	if (n < 0)
+	{
+		size++;
+		n = -n;
+	}
+	while (n != 0)
+	{
+		size++;
+		n = n / 10;
+	}
+	return (size);
+}
+
 int		ft_putnbr(unsigned int i)
 {
 	int char_count;
 
-	char_count = 0;
+	char_count = ft_intsize(i);
 	if (i / 10 != 0)
 	{
 		ft_putnbr(i /10);
-		char_count++;
 	}
 	ft_putchar((i % 10) + '0');
-	char_count++;
 	return (char_count);
 }
 
@@ -122,7 +138,7 @@ int		ft_treat_hexa(unsigned int i, char c)
 		while (hexadec[count_char] != '\0')
 		{
 			hexadec[count_char] = ft_tolower(hexadec[count_char]);
-		count_char++;
+			count_char++;
 		}
 	}
 	count_char = 0;
@@ -133,6 +149,16 @@ int		ft_treat_hexa(unsigned int i, char c)
 		j--;
 	}
 	return count_char;
+}
+
+int		ft_treat_u(unsigned int u)
+{
+	int		count_char;
+
+	count_char = 0;
+	count_char += ft_putnbr(u);
+//	printf("count_char is %d", count_char);
+	return (count_char);
 }
 
 int		ft_treat_hexa_sizet(size_t i, char c)
@@ -217,7 +243,8 @@ int		ft_treat_fs(char c, va_list list)
 	}
 	if (c == 'u')
 	{
-		printf("hi, this is an u integer");
+		i = va_arg(list, unsigned int);
+		char_count += ft_treat_u(i);
 	}
 	if (c == 'x' || c == 'X')
 	{
