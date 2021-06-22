@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:22:45 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/21 17:49:28 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/22 15:55:38 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int		ft_process_fs(const char **str, va_list list, t_flags flags)
 	return(char_count);
 }
 
-
 bool	ft_is_flag(char c)
 {
 	if( c == '.' || c == '*' || c == '-' || c == '0')
@@ -41,22 +40,6 @@ bool	ft_is_fs(char c)
 		return (true);
 	else
 		return (false);
-}
-
-void	ft_treat_char(char c)
-{
-	ft_putchar(c);
-}
-
-int		ft_treat_str(char *str)
-{
-	int	count_char;
-
-	count_char = ft_strlen(str);
-	if (!str)
-		str = "(NULL)";
-	ft_putstr(str);
-	return (count_char);
 }
 
 int		ft_treat_fs(char c, va_list list)
@@ -103,10 +86,7 @@ int		ft_treat_fs(char c, va_list list)
 	if (c == 'p')
 	{
 		t = va_arg(list, size_t);
-		ft_putchar('0');
-		char_count++;
-		ft_putchar('x');
-		char_count++;
+		char_count += ft_treat_str("0x");
 		char_count += ft_treat_hexa_sizet(t, 'x');
 		}
 

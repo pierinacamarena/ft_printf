@@ -37,6 +37,7 @@ int		ft_treat_hexa_sizet(size_t i, char c)
 		}
 	}
 	count_char = 0;
+	
 	while (j >= 0)
 	{
 		ft_putchar(hexadec[j]);

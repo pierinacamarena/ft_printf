@@ -6,11 +6,11 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 17:29:01 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/21 17:29:34 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/22 15:54:19 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.c"
+#include "ft_printf.h"
 
 int		ft_treat_hexa(unsigned int i, char c)
 {

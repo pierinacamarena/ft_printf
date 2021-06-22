@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:29:01 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/17 19:09:30 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/22 15:55:08 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,12 @@ void	ft_putstr(char *str);
 int		ft_putnbr(unsigned int i);
 int		ft_treat_int(int i);
 int		ft_treat_hexa(unsigned int i, char c);
+int		ft_treat_hexa_sizet(size_t i, char c);
 int		ft_tolower(int c);
 void	*ft_memset(void *b, int c, size_t len);
 char	*ft_strnew(size_t size);
 int		ft_intsize(unsigned int n);
+int		ft_treat_u(unsigned int u);
+
 
 #endif
