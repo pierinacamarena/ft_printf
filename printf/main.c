@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:15:18 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/17 19:47:56 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/22 20:30:25 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,13 @@ printf("valeur de retour = [%d]\n", printf("   printf = [%d] et [%d]\n", 42, -42
 	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%u] et [%u]\n", (unsigned int)3147483647, -42));
 	printf("valeur de retour = [%d]\n", printf("   printf = [%u] et [%u]\n", (unsigned int)3147483647, -42));
 	printf("=========================\n");
+
+	//understaing printf
+
+	printf("understaing printf\n");
+
+	printf("meow meow meow %d%d 4656asldkas\n", 76, 65);
+	ft_printf("meow meow meow %d%d 4656asldkas", 76,65);
 
 	return (0);
 }

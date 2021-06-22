@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 19:45:30 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/17 18:16:53 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/22 20:33:08 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -83,4 +83,10 @@ void	*ft_memset(void *b, int c, size_t len)
 		n++;
 	}
 	return (b);
+}
+
+
+int		ft_isdigit(char c)
+{
+	return (c >= '0' && c <= '9');
 }

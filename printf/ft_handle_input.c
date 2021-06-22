@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:22:45 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/22 15:55:38 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/22 20:37:02 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ bool	ft_is_fs(char c)
 		return (true);
 	else
 		return (false);
+}
+
+int		ft_eval_width()
+{
+	if 
 }
 
 int		ft_treat_fs(char c, va_list list)
