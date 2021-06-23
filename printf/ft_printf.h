@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:29:01 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/22 15:55:08 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/23 20:08:31 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct		s_flags
 	int		dot;
 	int		star;
 	int		width;
+	int		plus;
 }					t_flags;
 
 int		ft_printf(const char *input, ...);
@@ -37,7 +38,7 @@ bool	ft_is_flag(char c);
 bool	ft_is_fs(char c);
 void	ft_treat_char(char c);
 int		ft_treat_fs(char c, va_list list);
-int		ft_process_fs(const char **str, va_list list, t_flags flags);
+int		ft_process_fs(const char **str, va_list list, t_flags *flags);
 int		ft_treat_str(char *str);
 int		ft_strlen(char *str);
 void	ft_putstr(char *str);
@@ -50,6 +51,9 @@ void	*ft_memset(void *b, int c, size_t len);
 char	*ft_strnew(size_t size);
 int		ft_intsize(unsigned int n);
 int		ft_treat_u(unsigned int u);
+int		ft_isdigit(char c);
+int		ft_eval_width(char c, t_flags *flags);
+int		ft_flag_parse(char c, t_flags *flags);
 
 
 #endif

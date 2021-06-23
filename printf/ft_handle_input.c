@@ -6,21 +6,30 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:22:45 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/22 20:37:02 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/23 20:11:28 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_process_fs(const char **str, va_list list, t_flags flags)
+int		ft_process_fs(const char **str, va_list list, t_flags *flags)
 {
 	int		char_count;
 	char	c;
+	int i;
 
 	c = **str;
 	char_count = 0;
 	if (ft_is_flag(c))
+	{
 		printf("This is a flag! \n");
+		i = ft_flag_parse(c, flags);
+	}
+	else if (ft_isdigit(c))
+	{
+		printf("it has width!");
+		i = ft_eval_width(c, flags);
+	}
 	else if (ft_is_fs(c))
 		char_count += ft_treat_fs(c, list);
 	return(char_count);
@@ -28,7 +37,7 @@ int		ft_process_fs(const char **str, va_list list, t_flags flags)
 
 bool	ft_is_flag(char c)
 {
-	if( c == '.' || c == '*' || c == '-' || c == '0')
+	if( c == '.' || c == '*' || c == '-' || c == '0' || c == '+')
 		return (true);
 	else
 		return (false);
@@ -42,9 +51,41 @@ bool	ft_is_fs(char c)
 		return (false);
 }
 
-int		ft_eval_width()
+int		ft_eval_width(char c, t_flags *flags)
 {
-	if 
+	flags->width = 1;
+	printf("the width is %c\n", c);
+	return (1);
+}
+
+int		ft_flag_parse(char c, t_flags *flags)
+{
+	if (c == '-')
+	{
+		flags->minus = 1;
+		printf("it has a - flag\n");
+	}
+	if (c == '0')
+	{
+		flags->zero = 1;
+		printf("it has a 0 flag\n");
+	}
+	if (c == '.')
+	{
+		flags->dot = 1;
+		printf("it has a . flag\n");
+	}
+	if (c == '*')
+	{
+		flags->star = 1;
+		printf("it has a * flag\n");
+	}
+	if (c == '+')
+	{
+		flags->plus = 1;
+		printf("it has a + flag\n");
+	}
+	return (0);
 }
 
 int		ft_treat_fs(char c, va_list list)

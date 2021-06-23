@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:15:18 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/22 20:30:25 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:05:56 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,9 +108,32 @@ printf("valeur de retour = [%d]\n", printf("   printf = [%d] et [%d]\n", 42, -42
 	printf("understaing printf\n");
 
 	printf("meow meow meow %d%d 4656asldkas\n", 76, 65);
-	ft_printf("meow meow meow %d%d 4656asldkas", 76,65);
+	ft_printf("meow meow meow %d%d 4656asldkas\n", 76,65);
+
+	//testing flags
+
+	printf("=========================\n");
+	printf("printing with flags %+d meow\n", 444);
+	ft_printf("printing with flags %+d meow\n", 444);
+	printf("=========================\n\n");
+
+
+	//testing width
+
+	printf("=========================\n");
+	printf("printing with width %8d meow meow \n", 5);
+	ft_printf("printing with width %8d meow meow \n", 5);
+	printf("=========================\n");
+
+
+//	printf("=========================\n");
+//	printf("		(5) Prueba numeros (-*.38) {35}\n");
+//	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%-*.38%]\n", 35));
+//	printf("valeur de retour = [%d]\n", printf("   printf = [%-*.38%]\n", 35));
+//	printf("=========================\n");
 
 	return (0);
+
 }
 
 	/**
