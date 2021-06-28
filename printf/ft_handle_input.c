@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:22:45 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/23 20:11:28 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/28 18:47:14 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int		ft_process_fs(const char **str, va_list list, t_flags *flags)
 {
 	int		char_count;
 	char	c;
-	int i;
+	int		i;
+	char	*width;
 
 	c = **str;
 	char_count = 0;
@@ -28,7 +29,7 @@ int		ft_process_fs(const char **str, va_list list, t_flags *flags)
 	else if (ft_isdigit(c))
 	{
 		printf("it has width!");
-		i = ft_eval_width(c, flags);
+		width = ft_eval_width(c, flags);
 	}
 	else if (ft_is_fs(c))
 		char_count += ft_treat_fs(c, list);
@@ -51,11 +52,20 @@ bool	ft_is_fs(char c)
 		return (false);
 }
 
-int		ft_eval_width(char c, t_flags *flags)
+char	*ft_eval_width(char c, t_flags *flags)
 {
+	char *widthl;
+	int i;
+	int j;
+
+	i = 0;
 	flags->width = 1;
-	printf("the width is %c\n", c);
-	return (1);
+	widthl = ft_strnew(11);
+	while (widthl[i] >= '0' && widthl[i] <= '9')
+		i++;
+	widthl[i] = c;
+	widthl[i+1] = '\0';
+	return (widthl);
 }
 
 int		ft_flag_parse(char c, t_flags *flags)

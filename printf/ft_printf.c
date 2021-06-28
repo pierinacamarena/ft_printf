@@ -6,7 +6,7 @@
 /*   By: pcamaren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 11:06:22 by pcamaren          #+#    #+#             */
-/*   Updated: 2021/06/23 20:08:50 by pcamaren         ###   ########.fr       */
+/*   Updated: 2021/06/28 18:47:19 by pcamaren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ t_flags	ft_flag_init(void)
 	flags.star = 0;
 	flags.width = 0;
 	flags.plus = 0;
+	flags.insidefs = 0;
+
 	return(flags);
 }
 
@@ -40,11 +42,12 @@ int		ft_process_input(const char *str, va_list list)
 			break;
 		else if (*str!= '%')
 		{
+			flags.insidefs = 1;
 			write(1, &*str++, 1);
 			char_count++;
 			continue;
 		}
-		else if (*str == '%')
+		else if (*str == '%' && flags.insidefs == 0)
 		{
 			str++;
 			char_count += ft_process_fs(&str, list, &flags);
